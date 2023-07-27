@@ -1,6 +1,8 @@
 package Clinica;
 
+import java.util.HashMap;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Pasiente 
 {
@@ -86,6 +88,53 @@ public String getDireccion() {
 public void setDireccion(String direccion) {
 	this.direccion = direccion;
 }
+
+
+public void buscarPasienteCedula (HashMap<String, Pasiente > listadoPasiente, Scanner scanner)
+{
+	System.out.println("INGRESE LA CEDULA DEL PACIENTE");
+	String cedulaPaciente = scanner.nextLine();
+	Pasiente pasiente = listadoPasiente.get(cedulaPaciente);
+	 if(pasiente==null)
+	 {
+		 System.out.println("NO SE ENCONTRO UN PASIENTE CON ESA CEDULA");
+		 return;
+	 }
+	
+}
+
+
+public static Pasiente obtenerDatosPasiente(Scanner scanner)
+{
+	    System.out.println("INGRESE EL NOMBRE DEL PACIENTE");
+	    String nombre = scanner.nextLine();
+	    System.out.println("INGRESE EL APELLIDO DEL PACIENTE");
+	    String apellido = scanner.nextLine();
+	    System.out.println("INGRESE EL TELEFONO DEL PACIENTE");
+	    String telefono = scanner.nextLine();
+	    System.out.println("INGRESE EL CEDULA DEL PACIENTE");
+	    String cedula = scanner.nextLine();
+	    System.out.println("INGRESE LA DIRECCION DEL PACIENTE");
+	    String direccion = scanner.nextLine();
+
+	    return new Pasiente(nombre, apellido, telefono, cedula, direccion);
+}
+
+public static void agregarPasiente(HashMap<String, Pasiente> listadoPasiente, Scanner scanner) {
+    try {
+        Pasiente pasiente = Pasiente.obtenerDatosPasiente(scanner);
+        listadoPasiente.put(pasiente.getCedula(), pasiente);
+    } catch (NumberFormatException e) {
+        System.out.println("Error: Ingrese un valor numérico válido para teléfono o cédula.");
+    }
+}
+
+
+
+
+
+
+
 
   
 }

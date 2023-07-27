@@ -1,5 +1,7 @@
 package Clinica;
 
+import java.util.Scanner;
+
 public class TrabajoLaboratorio 
 {
 	 private String tipo;
@@ -36,5 +38,19 @@ public class TrabajoLaboratorio
 		this.estado = estado;
 	}
 	
+	public TrabajoLaboratorio crearTrabajoLaboratorio(Scanner scanner)
+	{
+		
+	 System.out.println("INGRESE EL TIPO DE TRABAJO A REALIZAR EN EL LABORATORIO");
+	 String tipo = scanner.nextLine();
+	 System.out.println("INGRESE EL COSTO DEL TRABAJO");
+	 double costo = scanner.nextDouble();
+	return null;
+	 
+		
+		
+		
+		
+	}
 	
 }
